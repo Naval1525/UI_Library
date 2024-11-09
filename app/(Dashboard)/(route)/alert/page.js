@@ -1,9 +1,8 @@
-import AlertLibrary from "./alertcomponent";
-import AlertComponent from "./alertcomponent";
+import Alertcomponent from "./alertcomponent";
 
 function alert() {
   return <div>
-    <AlertLibrary></AlertLibrary>
+    <Alertcomponent></Alertcomponent>
   </div>;
 }
 export default alert;
