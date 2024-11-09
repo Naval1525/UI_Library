@@ -32,15 +32,16 @@ const ComponentLibrary = () => {
     router.push(`/${route}`);
   };
 
-
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">
-            Component <span className="text-fuchsia-600 font-extrabold">Library</span>
+          <h1 className="text-5xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+            Component Library
           </h1>
-          <p className="text-gray-300 text-xl">Browse and discover our beautiful UI components</p>
+          <p className="text-gray-400 text-lg max-w-lg">
+            Browse and discover our beautifully designed UI components. Get inspired and use them in your projects.
+          </p>
         </div>
 
         {/* Search and Filter Section */}
@@ -53,7 +54,7 @@ const ComponentLibrary = () => {
                 <input
                   type="text"
                   placeholder="Search components..."
-                  className="w-full pl-14 pr-4 py-4 sm:py-5 rounded-full border border-transparent focus:border-transparent focus:ring-0 bg-black text-white placeholder-gray-500"
+                  className="w-full pl-14 pr-4 py-4 sm:py-5 rounded-full border border-transparent focus:ring-2 focus:ring-fuchsia-600 bg-gray-800 text-white placeholder-gray-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -63,10 +64,10 @@ const ComponentLibrary = () => {
 
           <div className="relative">
             <div className="absolute rounded-full -inset-px bg-gradient-to-r from-white to-fuchsia-600" />
-            <div className="relative flex items-center gap-2 bg-black rounded-full">
+            <div className="relative flex items-center gap-2 bg-gray-800 rounded-full">
               <Filter className="text-gray-500 w-5 h-5 ml-6" />
               <select
-                className="px-4 py-4 sm:py-5 rounded-full border-0 focus:ring-0 bg-black text-white appearance-none pr-12"
+                className="px-4 py-4 sm:py-5 rounded-full border-0 focus:ring-2 focus:ring-fuchsia-600 bg-gray-800 text-white appearance-none pr-12"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
@@ -80,16 +81,16 @@ const ComponentLibrary = () => {
         </div>
 
         {/* Components Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredComponents.map((component) => (
             <div
               key={component}
               onClick={() => handleComponentClick(component)}
-              className="relative group"
+              className="relative group cursor-pointer transition-all transform hover:scale-105"
             >
-              <div className="absolute rounded-lg -inset-px bg-gradient-to-r from-white to-fuchsia-600 group-hover:opacity-100 opacity-50 transition-opacity" />
-              <div className="relative bg-gray-900 p-6 rounded-lg cursor-pointer">
-                <h3 className="text-lg font-semibold text-white mb-2">{component}</h3>
+              <div className="absolute rounded-lg -inset-px bg-gradient-to-r from-pink-500 to-purple-600 opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold text-white mb-2">{component}</h3>
                 <p className="text-gray-400 text-sm">
                   Click to view {component.toLowerCase()} documentation and examples
                 </p>
