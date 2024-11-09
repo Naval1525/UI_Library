@@ -1,4 +1,4 @@
-import AlertLibrary from "./AlertLibrary";
+import AlertLibrary from "./alertcomponent";
 
 
 function alert() {
