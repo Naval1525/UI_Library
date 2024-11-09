@@ -1,5 +1,5 @@
-import AlertLibrary from "./alertcomponent";
-import AlertComponent from "./alertcomponent";
+import AlertLibrary from "./AlertLibrary";
+
 
 function alert() {
   return <div>
