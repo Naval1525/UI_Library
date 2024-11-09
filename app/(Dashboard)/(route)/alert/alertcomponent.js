@@ -160,7 +160,7 @@ const Alert = ({ type, alert }) => (
  * ======================
  * A comprehensive library of alert components with different styles and functionality
  */
-const AlertLibrary = () => {
+const Alertcomponent = () => {
   // State for managing code view toggles
   const [showCode, setShowCode] = useState(
     Object.keys(ALERT_TYPES).reduce((acc, type) => ({
@@ -233,4 +233,4 @@ const AlertLibrary = () => {
   );
 };
 
-export default AlertLibrary;
+export default Alertcomponent;
