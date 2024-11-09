@@ -4,7 +4,7 @@ import { Search, Filter } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const categories = {
-  "Form Elements": ["Alert", "Auth Form", "Badge", "Button", "Checkbox", "Input", "Radio Group", "Select", "Text Area", "Toggle", "Quantity Input"],
+  "Form Elements": ["Alert","Badge", "Button", "Checkbox", "Input", "Radio Group", "Select", "Text Area", "Toggle", "Quantity Input","AuthForm"],
   "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "Side Menu", "Vertical Menu", "Steps", "Tabs"],
   "Data Display": ["Details List", "Divider", "Grid", "Media", "Progress", "Stats", "Table"],
   "Feedback": ["Error Page", "Filter", "Popup"],
