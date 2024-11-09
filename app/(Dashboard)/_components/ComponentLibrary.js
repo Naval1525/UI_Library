@@ -7,7 +7,7 @@ const categories = {
   "Form Elements": ["Alert","Badge", "Button", "Checkbox", "Input", "Radio Group", "Select", "Text Area", "Toggle", "Quantity Input","AuthForm"],
   "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "Side Menu", "Vertical Menu", "Steps", "Tabs"],
   "Data Display": ["DetailsList", "Divider", "Grid", "Media", "Progress", "Stats", "Table"],
-  "Feedback": ["Error Page", "Filter", "Popup"],
+  "Feedback": ["ErrorPage", "Filter", "Popup"],
   "Marketing": ["Announcement", "Banner", "Block Cart", "Card", "Cart", "CTA", "FAQ", "Footer", "Form", "Pricing", "Product Card", "Product Collection", "Testimonial"]
 };
 
