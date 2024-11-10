@@ -13,7 +13,7 @@ const DeveloperLanding = () => {
 
   const categories = {
     "Form Elements": ["Alert", "Badge", "Button", "Checkbox", "Input", "Radio Group", "Select", "Text Area", "Toggle", "Quantity Input", "AuthForm"],
-    "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "Side Menu", "Vertical Menu", "Steps", "Tabs"],
+    "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "SideMenu", "Vertical Menu", "Steps", "Tabs"],
     "Data Display": ["Details List", "Divider", "Grid", "Media", "Progress", "Stats", "Table"],
     "Feedback": ["Error Page", "Filter", "Popup"],
     "Marketing": ["Announcement", "Banner", "Block Cart", "Card", "Cart", "CTA", "FAQ", "Footer", "Form", "Pricing", "Product Card", "Product Collection", "Testimonial"]
@@ -101,7 +101,7 @@ const DeveloperLanding = () => {
           {isMenuExpanded && (
             <nav className="md:hidden bg-gray-900 p-4 rounded-md">
               <div className="flex flex-col pt-8 pb-4 space-y-6">
-                {["Products", "Features", "Pricing", "Support"].map((item) => (
+                {["Documentation", "Components","IconLib", "Figma", "Contact Us"].map((item) => (
                   <a key={item} href={`/${item.toLowerCase()}`} className="text-base font-normal text-gray-300 hover:text-rose-400 transition-all duration-200">
                     {item}
                   </a>
