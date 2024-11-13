@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const categories = {
   "Form Elements": ["Alert","Badge", "Button", "Checkbox", "Input", "RadioGroup", "Select", "TextArea", "Toggle", "QuantityInput","AuthForm"],
-  "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "SideMenu", "Vertical Menu", "Steps", "Tabs"],
+  "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "SideMenu", "VerticalMenu", "Steps", "Tabs"],
   "Data Display": ["DetailsList", "Divider", "Grid", "Media", "Progress", "Stats", "Table"],
   "Feedback": ["ErrorPage", "Filter", "Popup"],
   "Marketing": ["Announcement", "Banner", "Block Cart", "Card", "Cart", "CTA", "FAQ", "Footer", "Form", "Pricing", "Product Card", "Product Collection", "Testimonial"]
