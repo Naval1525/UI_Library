@@ -77,7 +77,7 @@ const DeveloperLanding = () => {
             </button>
 
             <nav className="hidden md:flex ml-10 mr-auto space-x-10 lg:ml-20 lg:space-x-12">
-              {["Documentation", "Components","IconLib", "Figma", "Contact Us"].map((item) => (
+              {["Documentation", "Components","IconLib", "Figma", "ContactUs"].map((item) => (
                 <a key={item} href={`/${item.toLowerCase()}`} className="text-lg font-normal text-gray-300 hover:text-rose-400 transition-all duration-200">
                   {item}
                 </a>
