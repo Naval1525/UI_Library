@@ -86,13 +86,22 @@ const MediaCardLibrary = () => {
 
             {showCode[type] ? (
               <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto border border-gray-700">
-                <code>{`<MediaCard
-  type="${type}"
-  title="Custom Title"
-  description="Custom description text goes here"
-  imageSrc="/api/placeholder/80/80"
-  imageAlt="Media description"
-/>`}</code>
+                <code>{`<div className="flex items-start gap-4">
+  <img
+    src="https://avatarfiles.alphacoders.com/124/124105.png"
+    alt=""
+    className="size-20 rounded-lg object-cover"
+  />
+
+  <div>
+    <h3 className="text-lg/tight font-medium text-gray-900">Title goes here</h3>
+
+    <p className="mt-0.5 text-gray-700">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates voluptas distinctio
+      nesciunt quas non animi.
+    </p>
+  </div>
+</div>`}</code>
               </pre>
             ) : (
               <div className="p-4 bg-gray-950 rounded-xl">
@@ -107,3 +116,4 @@ const MediaCardLibrary = () => {
 };
 
 export default MediaCardLibrary;
+
