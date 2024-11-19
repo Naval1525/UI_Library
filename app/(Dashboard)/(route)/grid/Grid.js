@@ -5,7 +5,10 @@ const GRID_LAYOUTS = {
   twoEvenColumns: {
     title: "Two Even Columns",
     description: "Basic two-column grid with equal widths",
-    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">`,
+    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+</div>`,
     component: () => (
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
         <div className="h-32 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center">
@@ -20,7 +23,10 @@ const GRID_LAYOUTS = {
   smallLargeColumns: {
     title: "Small + Large Columns",
     description: "One-third and two-thirds column layout",
-    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">`,
+    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200 lg:col-span-2"></div>
+</div>`,
     component: () => (
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
         <div className="h-32 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center">
@@ -35,7 +41,11 @@ const GRID_LAYOUTS = {
   threeColumns: {
     title: "Three Even Columns",
     description: "Equal width three-column layout",
-    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">`,
+    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+</div>`,
     component: () => (
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
         <div className="h-32 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center">
@@ -53,7 +63,10 @@ const GRID_LAYOUTS = {
   sidebarLeft: {
     title: "Left Sidebar Layout",
     description: "Fixed-width sidebar with flexible main content",
-    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8">`,
+    code: `<div className="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8">
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+</div>`,
     component: () => (
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8">
         <div className="h-32 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center">
@@ -68,7 +81,12 @@ const GRID_LAYOUTS = {
   expandableSidebar: {
     title: "Expandable Sidebar",
     description: "Sidebar that expands on hover",
-    code: `<div className="grid grid-cols-1 gap-4 transition-[grid-template-columns] lg:grid-cols-[120px_1fr] lg:gap-8 lg:[&:has(>:first-child:hover)]:grid-cols-[160px_1fr]">`,
+    code: `<div
+  className="grid grid-cols-1 gap-4 transition-[grid-template-columns] lg:grid-cols-[120px_1fr] lg:gap-8 lg:[&:has(>*:first-child:hover)]:grid-cols-[160px_1fr]"
+>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+  <div className="h-32 rounded-lg bg-gray-200"></div>
+</div>`,
     component: () => (
       <div className="grid grid-cols-1 gap-4 transition-[grid-template-columns] lg:grid-cols-[120px_1fr] lg:gap-8 lg:[&:has(>:first-child:hover)]:grid-cols-[160px_1fr]">
         <div className="h-32 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center">
