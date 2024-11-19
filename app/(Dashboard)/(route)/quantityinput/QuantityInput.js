@@ -6,18 +6,102 @@ const QUANTITY_TYPES = {
   default: {
     title: "Default Quantity Input",
     description: "Basic quantity input with separated controls",
+    code: `
+<div>
+  <label htmlFor="Quantity" className="sr-only"> Quantity </label>
+
+  <div className="flex items-center gap-1">
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &minus;
+    </button>
+
+    <input
+      type="number"
+      id="Quantity"
+      value="1"
+      className="h-10 w-24 rounded border-gray-200 sm:text-sm"
+    />
+
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &plus;
+    </button>
+  </div>
+</div>`,
   },
   compact: {
     title: "Compact Quantity Input",
     description: "Narrow width quantity input",
+    code: `
+<div>
+  <label htmlFor="Quantity" className="sr-only"> Quantity </label>
+
+  <div className="flex items-center gap-1">
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &minus;
+    </button>
+
+    <input
+      type="number"
+      id="Quantity"
+      value="1"
+      className="h-10 w-24 rounded border-gray-200 [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+    />
+
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &plus;
+    </button>
+  </div>
+</div>>`,
   },
   centered: {
     title: "Centered Quantity Input",
     description: "Center-aligned quantity input",
+    code: `
+<div>
+  <label htmlFor="Quantity" className="sr-only"> Quantity </label>
+
+  <div className="flex items-center gap-1">
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &minus;
+    </button>
+
+    <input
+      type="number"
+      id="Quantity"
+      value="1"
+      className="h-10 w-16 rounded border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+    />
+
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &plus;
+    </button>
+  </div>
+</div>`,
   },
   unified: {
     title: "Unified Quantity Input",
     description: "Combined controls with shared border",
+    code: `
+<div>
+  <label htmlFor="Quantity" className="sr-only"> Quantity </label>
+
+  <div className="flex items-center rounded border border-gray-200">
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &minus;
+    </button>
+
+    <input
+      type="number"
+      id="Quantity"
+      value="1"
+      className="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+    />
+
+    <button type="button" className="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+      &plus;
+    </button>
+  </div>
+</div>`,
   },
 };
 
@@ -251,11 +335,7 @@ const QuantityInputLibrary = () => {
                   {showCode[type] ? "View UI" : "View Code"}
                 </button>
                 <button
-                  onClick={() =>
-                    copyCodeToClipboard(
-                      `<QuantityInput type="${type}" initialValue={1} />`
-                    )
-                  }
+                  onClick={() => copyCodeToClipboard(config.code)}
                   className="px-4 py-2 rounded-full bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 transition-all duration-200"
                 >
                   Copy Code
@@ -265,11 +345,7 @@ const QuantityInputLibrary = () => {
 
             {showCode[type] ? (
               <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto border border-gray-700">
-                <code>{`<QuantityInput
-  type="${type}"
-  initialValue={1}
-  onChange={(value) => console.log(value)}
-/>`}</code>
+                <code>{config.code}</code>
               </pre>
             ) : (
               <div className="p-4 bg-gray-950 rounded-xl">

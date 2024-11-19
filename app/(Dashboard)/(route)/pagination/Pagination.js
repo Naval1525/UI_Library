@@ -5,14 +5,166 @@ const PAGINATION_TYPES = {
   numbered: {
     title: "Numbered Pagination",
     description: "Pagination with numbered pages",
+    code: `
+<ol className="flex justify-center gap-1 text-xs font-medium">
+  <li>
+    <a
+      href="#"
+      className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+    >
+      <span className="sr-only">Prev Page</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="size-3"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="#"
+      className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+    >
+      1
+    </a>
+  </li>
+
+  <li className="block size-8 rounded border-blue-600 bg-blue-600 text-center leading-8 text-white">
+    2
+  </li>
+
+  <li>
+    <a
+      href="#"
+      className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+    >
+      3
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="#"
+      className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+    >
+      4
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="#"
+      className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+    >
+      <span className="sr-only">Next Page</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="size-3"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </a>
+  </li>
+</ol>`
   },
   input: {
     title: "Input Pagination",
     description: "Pagination with number input",
+    code: `
+<div className="inline-flex justify-center gap-1">
+  <a
+    href="#"
+    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+  >
+    <span className="sr-only">Prev Page</span>
+    <svg xmlns="http://www.w3.org/2000/svg" className="size-3" viewBox="0 0 20 20" fill="currentColor">
+      <path
+        fillRule="evenodd"
+        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </a>
+
+  <div>
+    <label htmlFor="PaginationPage" className="sr-only">Page</label>
+
+    <input
+      type="number"
+      className="h-8 w-12 rounded border border-gray-100 bg-white p-0 text-center text-xs font-medium text-gray-900 [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+      min="1"
+      value="2"
+      id="PaginationPage"
+    />
+  </div>
+
+  <a
+    href="#"
+    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+  >
+    <span className="sr-only">Next Page</span>
+    <svg xmlns="http://www.w3.org/2000/svg" className="size-3" viewBox="0 0 20 20" fill="currentColor">
+      <path
+        fillRule="evenodd"
+        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </a>
+</div>`
   },
   simple: {
     title: "Simple Pagination",
     description: "Basic prev/next pagination with current page indicator",
+    code: `<div className="inline-flex items-center justify-center gap-3">
+  <a
+    href="#"
+    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+  >
+    <span className="sr-only">Prev Page</span>
+    <svg xmlns="http://www.w3.org/2000/svg" className="size-3" viewBox="0 0 20 20" fill="currentColor">
+      <path
+        fillRule="evenodd"
+        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </a>
+
+  <p className="text-xs text-gray-900">
+    3
+    <span className="mx-0.25">/</span>
+    12
+  </p>
+
+  <a
+    href="#"
+    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+  >
+    <span className="sr-only">Next Page</span>
+    <svg xmlns="http://www.w3.org/2000/svg" className="size-3" viewBox="0 0 20 20" fill="currentColor">
+      <path
+        fillRule="evenodd"
+        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </a>
+</div>`
   },
 };
 
@@ -20,15 +172,22 @@ const PaginationControl = ({
   type = "numbered",
   currentPage = 2,
   totalPages = 12,
+  onChange = () => {},
 }) => {
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      onChange(newPage);
+    }
+  };
+
   const renderPaginationControl = () => {
     switch (type) {
       case "numbered":
         return (
           <ol className="flex justify-center gap-1 text-xs font-medium">
             <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
                 className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
               >
                 <span className="sr-only">Prev Page</span>
@@ -44,7 +203,7 @@ const PaginationControl = ({
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
+              </button>
             </li>
 
             {[1, 2, 3, 4].map((page) =>
@@ -57,19 +216,19 @@ const PaginationControl = ({
                 </li>
               ) : (
                 <li key={page}>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => handlePageChange(page)}
                     className="block size-8 rounded border border-gray-700 bg-gray-800 text-center leading-8 text-gray-300 hover:bg-gray-700"
                   >
                     {page}
-                  </a>
+                  </button>
                 </li>
               )
             )}
 
             <li>
-              <a
-                href="#"
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
                 className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
               >
                 <span className="sr-only">Next Page</span>
@@ -85,7 +244,7 @@ const PaginationControl = ({
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
+              </button>
             </li>
           </ol>
         );
@@ -93,8 +252,8 @@ const PaginationControl = ({
       case "input":
         return (
           <div className="inline-flex justify-center gap-1">
-            <a
-              href="#"
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
               className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
             >
               <span className="sr-only">Prev Page</span>
@@ -110,7 +269,7 @@ const PaginationControl = ({
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
 
             <div>
               <label htmlFor="PaginationPage" className="sr-only">
@@ -121,13 +280,18 @@ const PaginationControl = ({
                 type="number"
                 className="h-8 w-12 rounded border border-gray-700 bg-gray-800 p-0 text-center text-xs font-medium text-gray-300 focus:border-blue-500 focus:ring-blue-500 [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                 min="1"
+                max={totalPages}
                 value={currentPage}
+                onChange={(e) => {
+                  const newPage = parseInt(e.target.value);
+                  handlePageChange(newPage);
+                }}
                 id="PaginationPage"
               />
             </div>
 
-            <a
-              href="#"
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
               className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
             >
               <span className="sr-only">Next Page</span>
@@ -143,15 +307,15 @@ const PaginationControl = ({
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         );
 
       case "simple":
         return (
           <div className="inline-flex items-center justify-center gap-3">
-            <a
-              href="#"
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
               className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
             >
               <span className="sr-only">Prev Page</span>
@@ -167,7 +331,7 @@ const PaginationControl = ({
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
 
             <p className="text-xs text-gray-300">
               {currentPage}
@@ -175,8 +339,8 @@ const PaginationControl = ({
               {totalPages}
             </p>
 
-            <a
-              href="#"
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
               className="inline-flex size-8 items-center justify-center rounded border border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700 rtl:rotate-180"
             >
               <span className="sr-only">Next Page</span>
@@ -192,7 +356,7 @@ const PaginationControl = ({
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         );
 
@@ -205,6 +369,7 @@ const PaginationControl = ({
 };
 
 const PaginationLibrary = () => {
+  const [currentPage, setCurrentPage] = React.useState(2);
   const [showCode, setShowCode] = React.useState(
     Object.keys(PAGINATION_TYPES).reduce(
       (acc, type) => ({
@@ -256,9 +421,7 @@ const PaginationLibrary = () => {
                   {showCode[type] ? "View UI" : "View Code"}
                 </button>
                 <button
-                  onClick={() =>
-                    copyCodeToClipboard(`<PaginationControl type="${type}" />`)
-                  }
+                  onClick={() => copyCodeToClipboard(config.code)}
                   className="px-4 py-2 rounded-full bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 transition-all duration-200"
                 >
                   Copy Code
@@ -268,15 +431,16 @@ const PaginationLibrary = () => {
 
             {showCode[type] ? (
               <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto border border-gray-700">
-                <code>{`<PaginationControl
-  type="${type}"
-  currentPage={2}
-  totalPages={12}
-/>`}</code>
+                <code>{config.code}</code>
               </pre>
             ) : (
               <div className="p-4 bg-gray-950 rounded-xl">
-                <PaginationControl type={type} />
+                <PaginationControl 
+                  type={type} 
+                  currentPage={currentPage}
+                  totalPages={12}
+                  onChange={setCurrentPage}
+                />
               </div>
             )}
           </div>

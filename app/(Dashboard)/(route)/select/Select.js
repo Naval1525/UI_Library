@@ -6,15 +6,94 @@ const SELECT_TYPES = {
   default: {
     title: "Default Select Input",
     description: "Basic select input with standard dropdown",
+    code: `<div>
+  <label htmlFor="HeadlineAct" className="block text-sm font-medium text-gray-300">
+    Headliner
+  </label>
+  <select
+    name="HeadlineAct"
+    id="HeadlineAct"
+    className={baseSelectClasses}
+    value={value}
+    onChange={handleChange}
+  >
+    <option value="">Please select</option>
+    {guitarists.map((guitarist) => (
+      <option key={guitarist.value} value={guitarist.value}>
+        {guitarist.label}
+      </option>
+    ))}
+  </select>
+</div>`
   },
   grouped: {
     title: "Grouped Select Input",
     description: "Select input with grouped options",
+    code: `<div>
+  <label htmlFor="HeadlineAct" className="block text-sm font-medium text-gray-300">
+    Headliner
+  </label>
+  <select
+    name="HeadlineAct"
+    id="HeadlineAct"
+    className={baseSelectClasses}
+    value={value}
+    onChange={handleChange}
+  >
+    <option value="">Please select</option>
+    {Object.entries(groupedGuitarists).map(([group, options]) => (
+      <optgroup key={group} label={group}>
+        {options.map((guitarist) => (
+          <option key={guitarist.value} value={guitarist.value}>
+            {guitarist.label}
+          </option>
+        ))}
+      </optgroup>
+    ))}
+  </select>
+</div>`
   },
   datalist: {
     title: "Datalist Select Input",
     description: "Searchable select input with datalist",
-  },
+    code: `<div>
+  <label htmlFor="HeadlineAct" className="block text-sm font-medium text-gray-300">
+    Headliner
+  </label>
+  <div className="relative mt-1.5">
+    <input
+      type="text"
+      list="HeadlineActArtist"
+      id="HeadlineAct"
+      className={baseInputClasses}
+      placeholder="Please select"
+      value={value}
+      onChange={handleChange}
+    />
+    <span className="absolute inset-y-0 end-0 flex w-8 items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="size-5 text-gray-500"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+        />
+      </svg>
+    </span>
+    <datalist id="HeadlineActArtist">
+      {guitarists.map((guitarist) => (
+        <option key={guitarist.value} value={guitarist.label} />
+      ))}
+    </datalist>
+  </div>
+</div>`
+  }
 };
 
 const guitarists = [
@@ -167,7 +246,7 @@ const SelectInputLibrary = () => {
   );
 
   const copyCodeToClipboard = (code) => {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(code.trim());
   };
 
   return (
@@ -207,11 +286,7 @@ const SelectInputLibrary = () => {
                   {showCode[type] ? "View UI" : "View Code"}
                 </button>
                 <button
-                  onClick={() =>
-                    copyCodeToClipboard(
-                      `<SelectInput type="${type}" onChange={(value) => console.log(value)} />`
-                    )
-                  }
+                  onClick={() => copyCodeToClipboard(config.code)}
                   className="px-4 py-2 rounded-full bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 transition-all duration-200"
                 >
                   Copy Code
@@ -221,10 +296,7 @@ const SelectInputLibrary = () => {
 
             {showCode[type] ? (
               <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto border border-gray-700">
-                <code>{`<SelectInput
-  type="${type}"
-  onChange={(value) => console.log(value)}
-/>`}</code>
+                <code>{config.code.trim()}</code>
               </pre>
             ) : (
               <div className="p-4 bg-gray-950 rounded-xl">
