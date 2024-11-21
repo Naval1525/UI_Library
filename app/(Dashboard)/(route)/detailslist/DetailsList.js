@@ -2,141 +2,118 @@
 import React, { useState } from 'react';
 
 /**
- * Constants & Description List Types
- *  <!-- iska alternating theek karna hai --!>
+ * Constants for Description List Types
  */
 const DESCRIPTION_LIST_TYPES = {
-  basic: {
-    title: "Basic Description List",
+  default: {
+    title: "Default Description List",
+    items: [
+      { label: "Title", value: "Mr" },
+      { label: "Name", value: "John Frusciante" },
+      { label: "Occupation", value: "Guitarist" },
+      { label: "Salary", value: "$1,000,000+" },
+      {
+        label: "Bio",
+        value:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam aspernatur neque molestiae labore aliquam soluta architecto?",
+      },
+    ],
     styles: {
-      solid: "divide-gray-100"
-    }
+      container: "flow-root",
+      row: "grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4",
+      label: "font-medium text-gray-200", // Light gray for dark background
+      value: "text-gray-400 sm:col-span-2", // Slightly darker for value
+    },
   },
   alternating: {
     title: "Alternating Description List",
+    items: [
+      { label: "Title", value: "Mr" },
+      { label: "Name", value: "John Frusciante" },
+      { label: "Occupation", value: "Guitarist" },
+      { label: "Salary", value: "$1,000,000+" },
+      {
+        label: "Bio",
+        value:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam aspernatur neque molestiae labore aliquam soluta architecto?",
+      },
+    ],
     styles: {
-      solid: "divide-gray-100"
-    }
+      container: "flow-root",
+      row: "grid grid-cols-1 gap-1 py-3 even:bg-gray-800/30 sm:grid-cols-3 sm:gap-4",
+      label: "font-medium text-gray-200",
+      value: "text-gray-400 sm:col-span-2",
+    },
   },
   bordered: {
     title: "Bordered Description List",
+    items: [
+      { label: "Title", value: "Mr" },
+      { label: "Name", value: "John Frusciante" },
+      { label: "Occupation", value: "Guitarist" },
+      { label: "Salary", value: "$1,000,000+" },
+      {
+        label: "Bio",
+        value:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam aspernatur neque molestiae labore aliquam soluta architecto?",
+      },
+    ],
     styles: {
-      solid: "border-gray-100"
-    }
+      container: "flow-root rounded-lg border border-gray-700 py-3 shadow-sm",
+      row: "grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4",
+      label: "font-medium text-gray-200",
+      value: "text-gray-400 sm:col-span-2",
+    },
   },
   borderedAlternating: {
     title: "Bordered Alternating Description List",
+    items: [
+      { label: "Title", value: "Mr" },
+      { label: "Name", value: "John Frusciante" },
+      { label: "Occupation", value: "Guitarist" },
+      { label: "Salary", value: "$1,000,000+" },
+      {
+        label: "Bio",
+        value:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam aspernatur neque molestiae labore aliquam soluta architecto?",
+      },
+    ],
     styles: {
-      solid: "border-gray-100"
-    }
-  }
+      container: "flow-root rounded-lg border border-gray-700 py-3 shadow-sm",
+      row: "grid grid-cols-1 gap-1 p-3 even:bg-gray-800/30 sm:grid-cols-3 sm:gap-4",
+      label: "font-medium text-gray-200",
+      value: "text-gray-400 sm:col-span-2",
+    },
+  },
 };
 
-const SAMPLE_DATA = [
-  { label: "Title", value: "Mr" },
-  { label: "Name", value: "John Frusciante" },
-  { label: "Occupation", value: "Guitarist" },
-  { label: "Salary", value: "$1,000,000+" },
-  { label: "Bio", value: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam aspernatur neque molestiae labore aliquam soluta architecto?" }
-];
+const generateDescriptionListCode = (descriptionList, variant) => {
+  const styles = descriptionList.styles;
+  
+  return `
+<div className="${styles.container}">
+  <dl className="-my-3 divide-y divide-gray-100 text-sm">
+    ${descriptionList.items.map((item, index) => `
+    <div className="${styles.row}">
+      <dt className="${styles.label}">${item.label}</dt>
+      <dd className="${styles.value}">${item.value}</dd>
+    </div>`).join('')}
+  </dl>
+</div>`;
+};
 
-const generateDescriptionListCode = (type) => {
-    const isBordered = type.includes('bordered');
-    const isAlternating = type.includes('alternating');
-    
-    const wrapperClasses = [
-      "flow-root",
-      isBordered && "rounded-lg border border-gray-800 shadow-sm",
-      isBordered && "py-3"
-    ].filter(Boolean).join(" ");
-  
-    const dlClasses = [
-      "-my-3",
-      "divide-y",
-      "divide-gray-800",
-      "text-sm"
-    ].filter(Boolean).join(" ");
-  
-    const itemClasses = [
-      "grid grid-cols-1 gap-1",
-      isBordered ? "p-3" : "py-3",  // Adds padding for bordered lists
-      isAlternating && "even:bg-gray-800", // Alternates background color for even rows
-      isAlternating && "odd:bg-gray-900", // Adds a darker background for odd rows if alternating
-      "sm:grid-cols-3 sm:gap-4"
-    ].filter(Boolean).join(" ");
-  
-    // Extra features for bordered and alternating lists:
-    const extraFeatures = `
-      // Bordered Style:
-      ${isBordered ? `
-        // Each item is separated by a border with padding
-        <div className="rounded-lg border border-gray-800 shadow-sm p-3">  
-      ` : ""}
-      
-      // Alternating Style:
-      ${isAlternating ? `
-        // Alternating background colors for items
-        <div className="even:bg-gray-800 odd:bg-gray-900">
-      ` : ""}
-    `;
-  
-    return `
-  <div className="${wrapperClasses}">
-    <dl className="${dlClasses}">
-      {items.map((item, index) => (
-        <div key={index} className="${itemClasses}">
-          <dt className="font-medium text-gray-100">{item.label}</dt>
-          <dd className="text-gray-400 sm:col-span-2">{item.value}</dd>
+const DescriptionList = ({ descriptionList, variant }) => (
+  <div className={descriptionList.styles.container}>
+    <dl className="-my-3 divide-y divide-gray-100 text-sm">
+      {descriptionList.items.map((item, index) => (
+        <div key={index} className={descriptionList.styles.row}>
+          <dt className={descriptionList.styles.label}>{item.label}</dt>
+          <dd className={descriptionList.styles.value}>{item.value}</dd>
         </div>
       ))}
     </dl>
   </div>
-  ${extraFeatures}
-  `;
-  };
-  
-
-const DescriptionList = ({ type }) => {
-  const isBordered = type.includes('bordered');
-  const isAlternating = type.includes('alternating');
-  
-  const wrapperClasses = [
-    "flow-root",
-    isBordered && "rounded-lg border border-gray-800 shadow-sm",
-    isBordered && "py-3"
-  ].filter(Boolean).join(" ");
-
-  const dlClasses = [
-    "-my-3",
-    "divide-y",
-    "divide-gray-800",
-    "text-sm"
-  ].filter(Boolean).join(" ");
-
-  const itemClasses = [
-    "grid grid-cols-1 gap-1",
-    isBordered ? "p-3" : "py-3",
-    isAlternating && "even:bg-gray-800", // Ensure alternating rows have the background color
-    "sm:grid-cols-3 sm:gap-4"
-  ].filter(Boolean).join(" ");
-
-  return (
-    <div className={wrapperClasses}>
-      <dl className={dlClasses}>
-        {SAMPLE_DATA.map((item, index) => (
-          <div key={index} className={itemClasses}>
-            <dt className="font-medium text-gray-100">
-              {item.label}
-            </dt>
-            <dd className="text-gray-400 sm:col-span-2">
-              {item.value}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  );
-};
+);
 
 const DescriptionListLibrary = () => {
   const [showCode, setShowCode] = useState(
@@ -146,8 +123,16 @@ const DescriptionListLibrary = () => {
     }), {})
   );
 
+  const [selectedVariant, setSelectedVariant] = useState(
+    Object.keys(DESCRIPTION_LIST_TYPES).reduce((acc, type) => ({
+      ...acc,
+      [type]: 'default'
+    }), {})
+  );
+
   const copyCodeToClipboard = (type) => {
-    const code = generateDescriptionListCode(type);
+    const descriptionList = DESCRIPTION_LIST_TYPES[type];
+    const code = generateDescriptionListCode(descriptionList, selectedVariant[type]);
     navigator.clipboard.writeText(code);
   };
 
@@ -164,15 +149,15 @@ const DescriptionListLibrary = () => {
         {/* Header */}
         <div className="border-b border-gray-800 pb-5">
           <h2 className="text-3xl font-semibold">Description List Components</h2>
-          <p className="text-gray-400 mt-2">Customizable description list components for displaying key-value data</p>
+          <p className="text-gray-400 mt-2">Customizable description list components for various use cases</p>
         </div>
 
         {/* Description List Previews */}
-        {Object.entries(DESCRIPTION_LIST_TYPES).map(([type, config]) => (
+        {Object.entries(DESCRIPTION_LIST_TYPES).map(([type, descriptionList]) => (
           <div key={type} className="space-y-4 border border-gray-800 rounded-xl p-6 bg-gray-900/30">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold capitalize">
-                {config.title}
+                {descriptionList.title}
               </h3>
               <div className="flex gap-3">
                 <button
@@ -192,11 +177,11 @@ const DescriptionListLibrary = () => {
 
             {showCode[type] ? (
               <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto border border-gray-800">
-                <code>{generateDescriptionListCode(type)}</code>
+                <code>{generateDescriptionListCode(descriptionList, selectedVariant[type])}</code>
               </pre>
             ) : (
               <div className="p-4 bg-white/5 rounded-xl">
-                <DescriptionList type={type} />
+                <DescriptionList descriptionList={descriptionList} variant={selectedVariant[type]} />
               </div>
             )}
           </div>
