@@ -1,6 +1,7 @@
+import Radiocom from "./Radiocom";
 import RadioShowcase from "./Radiocom";
 
 function RadioGroup() {
-  return <div><RadioShowcase></RadioShowcase></div>;
+  return <div><Radiocom></Radiocom></div>;
 }
 export default RadioGroup;

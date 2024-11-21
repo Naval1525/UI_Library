@@ -241,7 +241,7 @@ const ContactPage = () => {
       linkedin: "https://www.linkedin.com/in/aditya-maurya-31457b281/",
       description:
         "Expert in responsive design and accessibility,Specializes in component architecture and design system",
-        imagePath: "/naval.png",
+        imagePath: "/adi.jpg",
     },
   ];
 
