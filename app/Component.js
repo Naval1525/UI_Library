@@ -175,7 +175,7 @@ const DeveloperLanding = () => {
 
             <div className="relative hidden md:inline-flex items-center gap-4">
               <a
-                href="https://discord.com"
+                href="https://discord.gg/DvUNATaTAe"
                 className="p-2 text-gray-300 hover:text-cyan-400"
                 aria-label="Discord"
               >
@@ -183,7 +183,7 @@ const DeveloperLanding = () => {
                 <Image src='/discord.png' width={26} height={26}></Image>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/Naval1525/UI_Library"
                 className="p-2 text-gray-300 hover:text-purple-400"
                 aria-label="GitHub"
               >
