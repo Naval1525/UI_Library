@@ -8,7 +8,7 @@ const categories = {
   "Navigation": ["Breadcrumb", "Dropdown", "Header", "Pagination", "SideMenu", "VerticalMenu", "Steps", "Tabs"],
   "Data Display": ["DetailsList", "Divider", "Grid", "Media", "Progress", "Stats", "Table"],
   "Feedback": ["ErrorPage", "Filter", "Popup"],
-  "Marketing": ["Announcement", "Banner", "Blog Cart", "Card", "Cart", "CTA", "FAQ", "Footer", "Form", "Pricing", "Product Card", "Product Collection", "Testimonial"]
+  "Marketing": ["Announcement", "Banner", "BlogCart", "Card", "Cart", "CTA", "FAQ", "Footer", "Form", "Pricing", "ProductCard", "ProductCollection", "Testimonial"]
 };
 
 const ComponentLibrary = () => {
