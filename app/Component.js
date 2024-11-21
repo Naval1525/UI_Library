@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Github, Sun, Moon, MessageCircle} from "lucide-react";
 import Im from "./im";
 import FloatingComponents from "./FloatingComponents";
+import VersionInfo from './VersionInfo'
 
 
 const DeveloperLanding = () => {
@@ -100,7 +101,7 @@ const DeveloperLanding = () => {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <a href="/" title="Home" className="flex items-center">
+              <a href="/" title="Home" className="flex items-center mr-3">
                 <Image
                   className="w-24 h-16"
                   src="/logo2.png"
@@ -111,6 +112,7 @@ const DeveloperLanding = () => {
                 />
                 <span className="text-4xl font-extrabold ">Tech.UI</span>
               </a>
+              <VersionInfo></VersionInfo>
             </div>
 
             <button
@@ -219,7 +221,7 @@ const DeveloperLanding = () => {
                   "Components",
                   "IconLib",
                   "Figma",
-                  "Contact Us",
+                  "ContactUs",
                 ].map((item) => (
                   <a
                     key={item}
@@ -230,7 +232,7 @@ const DeveloperLanding = () => {
                   </a>
                 ))}
 
-                <div className="relative inline-flex items-center justify-center group">
+                {/* <div className="relative inline-flex items-center justify-center group">
                   <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500" />
                   <a
                     href="/trial"
@@ -238,7 +240,7 @@ const DeveloperLanding = () => {
                   >
                     Start free trial
                   </a>
-                </div>
+                </div> */}
               </div>
             </nav>
           )}
